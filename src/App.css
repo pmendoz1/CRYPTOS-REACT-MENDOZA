@@ -24,7 +24,7 @@
   flex-wrap: wrap;
 }
 
-.ItemListConteiner {
+.ItemListContainer {
   display: flex;
   width: 100%;
   height: auto;

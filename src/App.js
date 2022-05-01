@@ -1,6 +1,6 @@
 import './App.css';
 import NavBar from './components/NavBar';
-import ItemListConteiner from './components/ItemListConteiner';
+import ItemListContainer from './components/ItemListContainer';
 
 
 function App() {
@@ -10,7 +10,7 @@ function App() {
       <NavBar />
       </header>
       <body className="App-body">
-          <ItemListConteiner greetings={"¡Bienvenido!"} />
+          <ItemListContainer greetings={"¡Bienvenido!"} />
       </body>
     </div>
   );
