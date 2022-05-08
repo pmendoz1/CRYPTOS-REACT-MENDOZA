@@ -1,4 +1,5 @@
 import '../App.css';
+import ItemCount from "./ItemCount";
 
 const ItemListContainer = ({ greetings }) => {
     return (
@@ -7,7 +8,8 @@ const ItemListContainer = ({ greetings }) => {
             <h1>{greetings}</h1>
         </div>
         <div className="ItemListContainer">
-            <h2>AQUÍ PONDREMOS UNA LISTA DE CRYPTOS</h2>
+            <ItemCount stock={10} initial={1} />
+            
         </div>
         </>
     );

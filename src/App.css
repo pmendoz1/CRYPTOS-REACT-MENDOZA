@@ -43,3 +43,19 @@
   width: 40px;
   height: 40px;
 }
+
+.Card {
+  height: 200px;
+  width: 250px;
+  margin: 20px 0px;
+  border-radius: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction:column;
+  background-color:coral
+}
+
+.Contador {
+  border: 2px solid #2706e3;
+}
