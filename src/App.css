@@ -45,8 +45,8 @@
 }
 
 .Card {
-  height: 200px;
-  width: 250px;
+  height:350px;
+  width: 200px;
   margin: 20px 0px;
   border-radius: 25px;
   display: flex;
@@ -54,6 +54,12 @@
   align-items: center;
   flex-direction:column;
   background-color:coral
+}
+
+.card-img-top {
+  width: 100%;
+  border-top-left-radius: calc(0.25rem - 1px);
+  border-top-right-radius: calc(0.25rem - 1px);
 }
 
 .Contador {
