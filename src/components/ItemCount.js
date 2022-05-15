@@ -2,31 +2,34 @@ import '../App.css';
 import React, { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 
-function ItemCount({ stock, initial, onAdd, onRemove }) {
+function ItemCount({ stock, initial, onAdd }) {
     const [count, setCount] = useState(initial);
 
-    onAdd = () => {
-        if (stock > count) {
-            setCount(count + 1)
-        } 
-    }
-    onRemove = () => {
-        if (count > initial) {
-            setCount(count - 1)
-        }
-    }
+    const addProducto = (num) => {
+        setCount(count + num);
+    };
     return (
-        <div  className="Card">
-            <h2>BITCOIN</h2>
+            <div>
             <div className='Contador'>
-                <button onClick={onRemove}>-</button>
-                <span>---{count}---</span>
-                <button onClick={onAdd}>+</button>
+                <button 
+                onClick={() => addProducto(-1)}
+                disabled={count === initial ? true : null}>
+                -
+                </button>
+                <span>----{count}----</span>
+                <button onClick={() => addProducto(+1)}
+                disabled={count === stock ? true : null}>
+                +
+                </button>
             </div>
             <div>
-            <Button variant="primary">Agregar al Carrito</Button>{' '}
+                <Button variant="primary"
+                onClick={() => onAdd(count)} 
+                disabled={stock === 0 ? true : null}>
+                Agregar al Carrito
+                </Button>
             </div>
-        </div>
+            </div>
     );
 }
 

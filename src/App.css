@@ -45,7 +45,7 @@
 }
 
 .Card {
-  height:350px;
+  height:450px;
   width: 200px;
   margin: 20px 0px;
   border-radius: 25px;
@@ -63,5 +63,6 @@
 }
 
 .Contador {
+  width: auto;
   border: 2px solid #2706e3;
 }

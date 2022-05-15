@@ -4,7 +4,9 @@ import Item from "./Item";
 
 function ItemList ({items}) {
     return(
-        <Item item={items.map(u => u)}/>
+        <>
+        {items ? items.map(item => <Item key={item.id} item={item}/>) : null}
+        </>
     )
 }
 
