@@ -7,22 +7,19 @@ import ItemDetailContainer from './components/ItemDetailContainer';
 
 function App() {
   return (
-    
-    <div>
+    <Router>
     <header className="App">
       <NavBar />
       </header>
       <body className="App-body">
-      <Router>
-      {/* <ItemListContainer greetings={"¡Bienvenido!"} /> */}
         <Routes>
-          <Route path='' element={<ItemListContainer greetings={"¡Bienvenido!"}/>} />
-          <Route path='/detail/:id' element={<ItemDetailContainer />} />
+          <Route path='' element={<ItemListContainer greetings={"Top 100 Cryptos por Capitalización"}/>} />
+          <Route path='/' element={<ItemListContainer greetings={"Top 100 Cryptos por Capitalización"}/>} />
+          <Route path='/category/:id' element={<ItemListContainer greetings={"Lista de la categoría seleccionada"}/>} />
+          <Route path='/item/:id' element={<ItemDetailContainer />} />
         </Routes>
-      </Router>    
       </body>
-    </div>
-    
+    </Router>
   );
 }
 

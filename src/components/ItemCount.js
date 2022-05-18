@@ -9,7 +9,7 @@ function ItemCount({ stock, initial, onAdd }) {
         setCount(count + num);
     };
     return (
-            <div>
+            <div className='Contador-general'>
             <div className='Contador'>
                 <button 
                 onClick={() => addProducto(-1)}

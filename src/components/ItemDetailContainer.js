@@ -6,20 +6,25 @@ import ItemDetail from './ItemDetail';
 
 const ItemDetailContainer = () => {
     let id = useParams();
-    const [listaDetail, setListaDetail] = useState([]);
+    const [listaProductoDetalle, setListaProductoDetalle] = useState([]);
     useEffect( () => {
-        const dataDetail = new Promise((resolve, reject) => {
-            const arrayItemDetail = axios.get(`https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=${id.id}`)
+        // Definimos promesa para consulta a la API de CoinGecko para un producto específico
+        const consultaAPIDetalle = new Promise((resolve, reject) => {
+            // Armamos array con el detalle del producto, de acuerdo al parámetro que viene del Route Link
+            const arrayProductoDetalle = axios.get(`https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=${id.id}`);
                 setTimeout(()=>{
-                resolve(arrayItemDetail);
+                    // Resolvemos la promesa con el contenido de arrayProductoDetalle
+                resolve(arrayProductoDetalle);
                 },2000);
             });
-            dataDetail.then( dataDetail => setListaDetail(dataDetail.data));
-            dataDetail.catch( err => console.log(err));
-        }, []);
+            // Llenamos el estado de listaProductoDetalle con el resultado de la consulta de la API
+            consultaAPIDetalle.then( productoDetalle => setListaProductoDetalle(productoDetalle.data));
+            consultaAPIDetalle.catch( err => console.log(err));
+        }, [id.id]);
+        // Mapeamos listaProductoDetalle y se lo mandamos a ItemDetail para renderizar el detalle del producto
     return (
         <>
-        {listaDetail ? listaDetail.map(item => <ItemDetail key={item.id} detalles={item}/>) : null}
+        {listaProductoDetalle ? listaProductoDetalle.map(productoDetalle => <ItemDetail key={productoDetalle.id} detalles={productoDetalle}/>) : null}
         </>
     );
 }

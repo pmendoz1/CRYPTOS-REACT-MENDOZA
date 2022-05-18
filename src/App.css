@@ -1,3 +1,9 @@
+@import url("https://fonts.googleapis.com/css?family=Montserrat:100,200,300,400");
+
+body{
+  font-family: Montserrat, Verdana, Geneva, Tahoma, sans-serif;
+}
+
 .App {
   text-align: center;
 }
@@ -7,7 +13,6 @@
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: flex-start;
   font-size: calc(10px + 2vmin);
   color: white;
@@ -45,15 +50,15 @@
 }
 
 .Card {
-  height:450px;
-  width: 200px;
+  height:350px;
+  width: 220px;
   margin: 20px 0px;
   border-radius: 25px;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction:column;
-  background-color:coral
+  background-color:coral;
 }
 
 .card-img-top {
@@ -63,6 +68,52 @@
 }
 
 .Contador {
-  width: auto;
+  display: inline-block;
+  background-color: rgb(135, 108, 123);
   border: 2px solid #2706e3;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.detalle-producto {
+  display: inline-block;
+  margin: 20px;
+  background-color:rgb(92, 40, 129);
+  justify-content: center;
+  align-items: center;
+  border-radius: 25px;
+  align-content: center;
+}
+
+.Contador-general {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.detalle-producto-titulos{
+  text-align:end;
+}
+
+.titulo{
+  display: inline-block;
+  margin: 5px;
+  width: auto;
+  background-color:rgb(92, 40, 129);
+  justify-content: center;
+  align-items: center;
+  border-radius: 25px;
+  align-content: center;
+  text-align: center;
+}
+
+.coingecko{
+  padding: 10px;
+  margin-bottom: 40px;
+  background-color:rgb(86, 145, 61);
+  border-radius: 10px;
+  text-align: center;
+  justify-content: center;
 }
