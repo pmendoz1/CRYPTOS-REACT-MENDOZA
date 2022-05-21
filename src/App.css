@@ -22,7 +22,6 @@ body{
   display: flex;
   width: 100%;
   height: auto;
-  border-radius: 10px;
   justify-content: space-around;
   align-items: center;
   background-color: rgb(60, 63, 89);
@@ -53,12 +52,13 @@ body{
   height:350px;
   width: 220px;
   margin: 20px 0px;
-  border-radius: 25px;
+  border-radius:10px;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction:column;
-  background-color:coral;
+  background-color:rgb(63, 68, 125);
+  box-shadow: 3px 3px 10px black;
 }
 
 .card-img-top {
@@ -82,8 +82,9 @@ body{
   background-color:rgb(92, 40, 129);
   justify-content: center;
   align-items: center;
-  border-radius: 25px;
+  border-radius: 10px;
   align-content: center;
+  box-shadow: 3px 3px 10px black;
 }
 
 .Contador-general {
@@ -104,7 +105,7 @@ body{
   background-color:rgb(92, 40, 129);
   justify-content: center;
   align-items: center;
-  border-radius: 25px;
+  border-radius: 5px;
   align-content: center;
   text-align: center;
 }
