@@ -1,10 +1,25 @@
 import "../App.css";
+import Button from "react-bootstrap/Button";
+import { CartContext } from "../CartContext";
+import { useContext } from "react";
 
-function Cart({ carrito }) {
+//Renderizamos el carrito
+function Cart({ item }) {
+  const [carrito, setCarrito, addItem, isInCart, removeItem, clear] =
+    useContext(CartContext);
   return (
-    <div className="titulo">
-      <h1>AQUI PONDREMOS EL CARRITO</h1>
-    </div>
+    <>
+      <ul>
+        <li>Moneda: {item.id}</li>
+        <li>Cantidad: {item.cantidad}</li>
+        <Button
+          variant="success button"
+          onClick={() => setCarrito(removeItem(item.id))}
+        >
+          Borrar
+        </Button>
+      </ul>
+    </>
   );
 }
 

@@ -1,13 +1,19 @@
 import "../App.css";
 import Container from "react-bootstrap/Container";
+import Button from "react-bootstrap/Button";
 import { Row } from "react-bootstrap";
 import { Col } from "react-bootstrap";
 import ItemCount from "./ItemCount";
 import CoinGecko from "../img/coingecko.svg";
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
+import { useContext } from "react";
+import { CartContext } from "../CartContext";
 
 function ItemDetail({ detalles }) {
   const [cantidadProducto, setCantidadProducto] = useState();
+
+  const [carrito, setCarrito, addItem, isInCart] = useContext(CartContext);
 
   // Función para almacenar cantidad del producto seleccionado, al hacer click en agregar al carrito
   const onAdd = (count) => {
@@ -123,13 +129,19 @@ function ItemDetail({ detalles }) {
               <h4>Search Powered by</h4>
               <img alt="img" src={CoinGecko} />
             </Row>
-            <ItemCount
-              stock={5}
-              initial={1}
-              onAdd={onAdd}
-              cantidadCarrito={cantidadProducto}
-              productoDetalle={detalles}
-            />
+            {!isInCart(detalles.id) ? (
+              <ItemCount
+                stock={5}
+                initial={1}
+                onAdd={onAdd}
+                cantidadCarrito={cantidadProducto}
+                productoDetalle={detalles}
+              />
+            ) : (
+              <Link to="/cart">
+                <Button variant="primary">Finalizar Compra</Button>
+              </Link>
+            )}
           </Col>
         </Row>
       </Container>
