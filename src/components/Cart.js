@@ -12,10 +12,7 @@ function Cart({ item }) {
       <ul>
         <li>Moneda: {item.id}</li>
         <li>Cantidad: {item.cantidad}</li>
-        <Button
-          variant="success button"
-          onClick={() => setCarrito(removeItem(item.id))}
-        >
+        <Button variant="success button" onClick={() => removeItem(item.id)}>
           Borrar
         </Button>
       </ul>

@@ -23,13 +23,12 @@ export const ItemsProvider = ({ children }) => {
   };
   // Función para remover productos del carrito
   const removeItem = (itemId) => {
-    for (var i = 0; i < carrito.length; i++) {
-      if (carrito[i].id == itemId) {
-        carrito.splice(i, 1);
-        break;
-      }
-    }
-    return carrito;
+    const carritoNew = carrito.slice();
+    const index = carrito.findIndex((object) => {
+      return object.id === itemId;
+    });
+    carritoNew.splice(index, 1);
+    setCarrito(carritoNew);
   };
 
   const clear = () => {
