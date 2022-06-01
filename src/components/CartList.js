@@ -3,27 +3,50 @@ import Button from "react-bootstrap/Button";
 import Cart from "./Cart";
 import { useContext } from "react";
 import { CartContext } from "../CartContext";
+import { Link } from "react-router-dom";
 
 //Mapeamos el carrito y se lo enviamos a Cart para renderizarlo.
 function CartList() {
-  const [carrito, setCarrito, addItem, isInCart, removeItem, clear] =
-    useContext(CartContext);
+  const [
+    carrito,
+    setCarrito,
+    addItem,
+    isInCart,
+    removeItem,
+    clear,
+    precioTotal,
+    setPrecioTotal,
+  ] = useContext(CartContext);
   return (
     <>
       <div className="titulo">
-        <h1>Su Carrito de Compras</h1>
+        <h2>Su Carrito de Compras</h2>
       </div>
       {carrito[0] ? (
-        carrito.map((producto) => <Cart key={producto.id} item={producto} />)
+        <div className="ItemListContainer">
+          {carrito.map((producto) => (
+            <Cart key={producto.id} item={producto} />
+          ))}
+        </div>
       ) : (
-        <div className="titulo">
-          <h2> NO HAY NADA EN EL CARRITO</h2>
+        <div className="detalle-carrito-bottom">
+          <h3> Carrito Vacío</h3>
+          <Link to="/">
+            <Button variant="primary">¡Vamos a comprar algo!</Button>
+          </Link>
         </div>
       )}
       {carrito[0] ? (
-        <Button variant="primary" onClick={() => clear()}>
-          Borrar Todo
-        </Button>
+        <>
+          <div className="detalle-carrito-bottom">
+            <div>
+              <h3>Precio total: ${precioTotal.toFixed(2)}</h3>
+            </div>
+            <Button variant="primary" size="lg" onClick={() => clear()}>
+              Borrar Todo
+            </Button>
+          </div>
+        </>
       ) : null}
     </>
   );
