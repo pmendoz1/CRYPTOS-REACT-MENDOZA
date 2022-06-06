@@ -10,6 +10,7 @@ const ItemDetailContainer = () => {
   const [listaProductoDetalle, setListaProductoDetalle] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
+  // Consulta a la db para armar array con el detalle del producto, de acuerdo al parámetro que viene del Route Link
   useEffect(() => {
     const getCryptos = async () => {
       const q = query(collection(db, "cryptos"), where("symbol", "==", id));
@@ -25,25 +26,6 @@ const ItemDetailContainer = () => {
       setIsLoading(false);
     }, 1000);
   }, [id]);
-
-  // useEffect(() => {
-  //   // Definimos promesa para consulta a la API de CoinGecko para un producto específico
-  //   const consultaAPIDetalle = new Promise((resolve, reject) => {
-  //     // Armamos array con el detalle del producto, de acuerdo al parámetro que viene del Route Link
-  //     const arrayProductoDetalle = axios.get(
-  //       `https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=${id.id}`
-  //     );
-  //     setTimeout(() => {
-  //       // Resolvemos la promesa con el contenido de arrayProductoDetalle
-  //       resolve(arrayProductoDetalle);
-  //     }, 2000);
-  //   });
-  //   // Llenamos el estado de listaProductoDetalle con el resultado de la consulta de la API
-  //   consultaAPIDetalle.then((productoDetalle) =>
-  //     setListaProductoDetalle(productoDetalle.data)
-  //   );
-  //   consultaAPIDetalle.catch((err) => console.log(err));
-  // }, [id.id]);
 
   // Mapeamos listaProductoDetalle y se lo mandamos a ItemDetail para renderizar el detalle del producto
   return (
