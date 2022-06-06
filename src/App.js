@@ -17,11 +17,7 @@ function App() {
           <Routes>
             <Route
               path=""
-              element={
-                <ItemListContainer
-                  greetings={"Top 100 Cryptos por Capitalización"}
-                />
-              }
+              element={<ItemListContainer greetings={"¡Bienvenido!"} />}
             />
             <Route
               path="/"

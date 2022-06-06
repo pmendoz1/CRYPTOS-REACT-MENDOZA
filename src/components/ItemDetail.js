@@ -129,7 +129,7 @@ function ItemDetail({ detalles }) {
               <h4>Search Powered by</h4>
               <img alt="img" src={CoinGecko} />
             </Row>
-            {!isInCart(detalles.id) ? (
+            {!isInCart(detalles.symbol) ? (
               <ItemCount
                 stock={5}
                 initial={1}
@@ -138,8 +138,8 @@ function ItemDetail({ detalles }) {
                 productoDetalle={detalles}
               />
             ) : (
-              <Link to="/cart">
-                <Button variant="primary">Finalizar Compra</Button>
+              <Link to="/">
+                <Button variant="primary">¡Sigamos comprando!</Button>
               </Link>
             )}
           </Col>

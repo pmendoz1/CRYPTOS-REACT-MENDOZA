@@ -1,40 +1,52 @@
 import "../App.css";
 import ItemList from "./ItemList";
 import React, { useEffect, useState } from "react";
-import axios from "axios";
 import { useParams } from "react-router-dom";
+import { collection, query, where, getDocs } from "firebase/firestore";
+import { db } from "../firebase/firebaseConfig";
 
 const ItemListContainer = ({ greetings }) => {
-  let categoryId = useParams();
+  const { id } = useParams();
   const [listaProductos, setListaProductos] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+  // Consulta a la db para llenar array listaProductos, de acuerdo al parámetro que viene del Route Link
   useEffect(() => {
-    // Definimos promesa para consulta a la API de CoinGecko
-    const consultaAPI = new Promise((resolve, reject) => {
-      // Armamos array de acuerdo a si viene o no parametro en Route Link
-      const arrayProductos = !categoryId.id
-        ? axios.get(
-            "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd"
-          )
-        : axios.get(
-            `https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&category=${categoryId.id}&order=market_cap_desc&per_page=100&page=1&sparkline=false`
-          );
-      setTimeout(() => {
-        // Resolvemos la promesa con el contenido de arrayProductos
-        resolve(arrayProductos);
-      }, 2000);
-    }, []);
-    // Llenamos el estado de listaProductos con el resultado de la consulta de la API
-    consultaAPI.then((productos) => setListaProductos(productos.data));
-    consultaAPI.catch((err) => console.log(err));
-  }, [categoryId.id]);
+    const getCryptos = async () => {
+      let q = [];
+      if (!id) {
+        q = query(collection(db, "cryptos"));
+      } else {
+        q = query(collection(db, "cryptos"), where("ecosystem", "==", id));
+      }
+      const docs = [];
+      const querySnapshot = await getDocs(q);
+      querySnapshot.forEach((doc) => {
+        docs.push({ ...doc.data() });
+      });
+      setListaProductos(docs);
+    };
+    getCryptos();
+    setTimeout(() => {
+      setIsLoading(false);
+    }, 1000);
+  }, [id]);
+
   return (
     <>
-      <div className="titulo">
-        <h2>{greetings}</h2>
-      </div>
-      <div className="ItemListContainer">
-        <ItemList items={listaProductos} />
-      </div>
+      {isLoading ? (
+        <div>
+          <h1>CARGANDO</h1>
+        </div>
+      ) : (
+        <>
+          <div className="titulo">
+            <h2>{greetings}</h2>
+          </div>
+          <div className="ItemListContainer">
+            <ItemList items={listaProductos} />
+          </div>
+        </>
+      )}
     </>
   );
 };

@@ -22,7 +22,11 @@ function CartWidget() {
               </div>
             </Link>
             <div className="text-on-image">
-              <h3>{carrito.length}</h3>
+              <h3>
+                {carrito.reduce((accumulator, object) => {
+                  return accumulator + object.cantidad;
+                }, 0)}
+              </h3>
             </div>
           </>
         ) : null}

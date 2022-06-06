@@ -17,7 +17,7 @@ export const ItemsProvider = ({ children }) => {
     setCarrito((carritoViejo) => [
       ...carritoViejo,
       {
-        id: item.id,
+        id: item.symbol,
         price: item.current_price,
         image: item.image,
         cantidad: quantity,

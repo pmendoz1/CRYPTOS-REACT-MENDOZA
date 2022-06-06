@@ -57,7 +57,7 @@ function Cart({ item }) {
                     <h3>Cantidad:</h3>
                   </Col>
                   <Col>
-                    <h3>${item.cantidad}</h3>
+                    <h3>{item.cantidad}</h3>
                   </Col>
                 </Row>
               </Col>

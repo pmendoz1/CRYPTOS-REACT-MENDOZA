@@ -7,7 +7,7 @@ function Item({ item }) {
     <div className="Card">
       <img className="card-img-top" alt="img" src={item.image} />
       <h2>{item.name}</h2>
-      <Link to={`/item/${item.id}`}>
+      <Link to={`/item/${item.symbol}`}>
         <Button variant="primary">Ver detalle del producto</Button>{" "}
       </Link>
     </div>
