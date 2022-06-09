@@ -42,6 +42,12 @@ function CartList() {
             <div>
               <h3>Precio total: ${precioTotal.toFixed(2)}</h3>
             </div>
+            <Link to="/checkout">
+              <Button variant="primary">Checkout</Button>
+            </Link>
+            <Link to="/">
+              <Button variant="primary">¡Sigamos Comprando!</Button>
+            </Link>
             <Button variant="primary" size="lg" onClick={() => clear()}>
               Borrar Todo
             </Button>

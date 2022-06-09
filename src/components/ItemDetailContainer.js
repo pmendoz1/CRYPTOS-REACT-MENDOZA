@@ -2,7 +2,13 @@ import React, { useEffect, useState } from "react";
 // import axios from "axios";
 import { useParams } from "react-router-dom";
 import ItemDetail from "./ItemDetail";
-import { collection, query, where, getDocs } from "firebase/firestore";
+import {
+  collection,
+  query,
+  where,
+  getDocs,
+  documentId,
+} from "firebase/firestore";
 import { db } from "../firebase/firebaseConfig";
 
 const ItemDetailContainer = () => {
@@ -13,11 +19,11 @@ const ItemDetailContainer = () => {
   // Consulta a la db para armar array con el detalle del producto, de acuerdo al parámetro que viene del Route Link
   useEffect(() => {
     const getCryptos = async () => {
-      const q = query(collection(db, "cryptos"), where("symbol", "==", id));
+      const q = query(collection(db, "cryptos"), where(documentId(), "==", id));
       const docs = [];
       const querySnapshot = await getDocs(q);
       querySnapshot.forEach((doc) => {
-        docs.push({ ...doc.data() });
+        docs.push({ ...doc.data(), id: doc.id });
       });
       setListaProductoDetalle(docs);
     };
@@ -36,7 +42,7 @@ const ItemDetailContainer = () => {
         </div>
       ) : listaProductoDetalle ? (
         listaProductoDetalle.map((productoDetalle) => (
-          <ItemDetail key={productoDetalle.symbol} detalles={productoDetalle} />
+          <ItemDetail key={productoDetalle.id} detalles={productoDetalle} />
         ))
       ) : null}
     </>

@@ -6,9 +6,7 @@ function ItemList({ items }) {
   return (
     <>
       {items
-        ? items.map((producto) => (
-            <Item key={producto.symbol} item={producto} />
-          ))
+        ? items.map((producto) => <Item key={producto.id} item={producto} />)
         : null}
     </>
   );

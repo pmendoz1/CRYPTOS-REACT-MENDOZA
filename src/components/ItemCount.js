@@ -5,13 +5,7 @@ import { Link } from "react-router-dom";
 import { useContext } from "react";
 import { CartContext } from "../CartContext";
 
-function ItemCount({
-  stock,
-  initial,
-  onAdd,
-  cantidadCarrito,
-  productoDetalle,
-}) {
+function ItemCount({ stock, initial, productoDetalle }) {
   const [count, setCount] = useState(initial);
 
   const [carrito, setCarrito, addItem, isInCart, removeItem, clear] =
@@ -22,10 +16,7 @@ function ItemCount({
   };
   return (
     <>
-      <div
-        className="Contador-general"
-        disabled={cantidadCarrito ? true : false}
-      >
+      <div className="Contador-general" disabled={carrito ? true : false}>
         <div className="Contador">
           <button
             onClick={() => addProducto(-1)}

@@ -21,7 +21,7 @@ const ItemListContainer = ({ greetings }) => {
       const docs = [];
       const querySnapshot = await getDocs(q);
       querySnapshot.forEach((doc) => {
-        docs.push({ ...doc.data() });
+        docs.push({ ...doc.data(), id: doc.id });
       });
       setListaProductos(docs);
     };

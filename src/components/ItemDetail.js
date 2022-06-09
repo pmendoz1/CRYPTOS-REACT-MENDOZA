@@ -11,14 +11,8 @@ import { useContext } from "react";
 import { CartContext } from "../CartContext";
 
 function ItemDetail({ detalles }) {
-  const [cantidadProducto, setCantidadProducto] = useState();
-
   const [carrito, setCarrito, addItem, isInCart] = useContext(CartContext);
 
-  // Función para almacenar cantidad del producto seleccionado, al hacer click en agregar al carrito
-  const onAdd = (count) => {
-    setCantidadProducto(count);
-  };
   return (
     <div className="detalle-producto">
       <Container fluid>
@@ -130,17 +124,20 @@ function ItemDetail({ detalles }) {
               <img alt="img" src={CoinGecko} />
             </Row>
             {!isInCart(detalles.symbol) ? (
-              <ItemCount
-                stock={5}
-                initial={1}
-                onAdd={onAdd}
-                cantidadCarrito={cantidadProducto}
-                productoDetalle={detalles}
-              />
+              <ItemCount stock={5} initial={1} productoDetalle={detalles} />
             ) : (
-              <Link to="/">
-                <Button variant="primary">¡Sigamos comprando!</Button>
-              </Link>
+              <>
+                <Row>
+                  <Link to="/">
+                    <Button variant="primary">¡Sigamos Comprando!</Button>
+                  </Link>
+                </Row>
+                <Row>
+                  <Link to="/cart">
+                    <Button variant="primary">Finalizar Compra</Button>
+                  </Link>
+                </Row>
+              </>
             )}
           </Col>
         </Row>
