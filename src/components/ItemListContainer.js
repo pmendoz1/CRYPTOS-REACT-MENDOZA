@@ -4,6 +4,7 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { collection, query, where, getDocs } from "firebase/firestore";
 import { db } from "../firebase/firebaseConfig";
+import { LinearProgress } from "@mui/material";
 
 const ItemListContainer = ({ greetings }) => {
   const { id } = useParams();
@@ -34,7 +35,8 @@ const ItemListContainer = ({ greetings }) => {
   return (
     <>
       {isLoading ? (
-        <div>
+        <div className="Loading">
+          <LinearProgress color="secondary" />
           <h1>CARGANDO</h1>
         </div>
       ) : (

@@ -2,6 +2,7 @@ import "../App.css";
 import Button from "react-bootstrap/Button";
 import { Link } from "react-router-dom";
 
+//Renderiza el item general
 function Item({ item }) {
   return (
     <div className="Card">

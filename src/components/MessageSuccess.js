@@ -6,7 +6,8 @@ const MessageSuccess = ({ purchaseID }) => {
   return (
     <Stack sx={{ width: "100%" }} spacing={2}>
       <Alert severity="success">
-        Gracias por su compra! su id de transacción es: {purchaseID}
+        Gracias por su compra! su id de transacción es: {purchaseID}. Enviamos
+        un correo a su casilla para finalizar la compra.
       </Alert>
     </Stack>
   );

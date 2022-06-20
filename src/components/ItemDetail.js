@@ -10,6 +10,7 @@ import { Link } from "react-router-dom";
 import { useContext } from "react";
 import { CartContext } from "../CartContext";
 
+//Función para renderizar el detalle del producto.
 function ItemDetail({ detalles }) {
   const [carrito, setCarrito, addItem, isInCart] = useContext(CartContext);
 

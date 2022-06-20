@@ -220,3 +220,15 @@ body{
 	background: rgb(0, 0, 0);
 	background: radial-gradient(circle, rgb(11, 4, 4) 77%, rgb(0, 0, 0) 100%);
 }
+
+.Loading{
+  display: inline-block;
+  margin: 5px;
+  width: auto;
+  /* background-color:rgb(113, 85, 134); */
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+  align-content: center;
+  text-align: center;
+}

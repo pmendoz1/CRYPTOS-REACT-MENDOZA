@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-// import axios from "axios";
 import { useParams } from "react-router-dom";
 import ItemDetail from "./ItemDetail";
 import {
@@ -10,6 +9,7 @@ import {
   documentId,
 } from "firebase/firestore";
 import { db } from "../firebase/firebaseConfig";
+import { LinearProgress } from "@mui/material";
 
 const ItemDetailContainer = () => {
   const { id } = useParams();
@@ -37,7 +37,8 @@ const ItemDetailContainer = () => {
   return (
     <>
       {isLoading ? (
-        <div>
+        <div className="Loading">
+          <LinearProgress color="secondary" />
           <h1>CARGANDO</h1>
         </div>
       ) : listaProductoDetalle ? (

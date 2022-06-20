@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import { useContext } from "react";
 import { CartContext } from "../CartContext";
 
+//Función para el agregado de items al carrito
 function ItemCount({ stock, initial, productoDetalle }) {
   const [count, setCount] = useState(initial);
 

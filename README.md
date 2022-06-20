@@ -4,6 +4,14 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Librerias Externas Necesarias
+
+npm i bootstrap: Se utiliza para renderizar botones y organizar información
+npm i firebase: Conexión con la base de datos de la app
+npm i @mui/material @emotion/react @emotion/styled: Se utiliza para renderizar formulario de checkout y animacionesde carga de páginas.
+npm i react-dom: DOM server para renderizar React.
+npm i react-router-dom: Se utiliza para armar los links de la app.
+
 ## Available Scripts
 
 In the project directory, you can run:
